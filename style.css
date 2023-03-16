@@ -68,6 +68,7 @@ header {
     border-radius: 50%;
     background-color: #D03F2F;
     margin: 5px;
+    cursor: pointer;
 }
 
 .circle-2 {
@@ -76,6 +77,7 @@ header {
     border-radius: 50%;
     background-color: #242D44;
     margin: 5px;
+    cursor: pointer;
 }
 
 .circle-3 {
@@ -84,6 +86,7 @@ header {
     border-radius: 50%;
     background-color: #242D44;
     margin: 5px;
+    cursor: pointer;
 }
 
 .div-result {
@@ -109,6 +112,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     gap: 13px;
+    border-radius: 10px;
 }
 
 .butt-numbers {
@@ -149,10 +153,6 @@ header {
     cursor: pointer;
 }
 
-.butt-del:hover {
-    opacity: 0.7;
-}
-
 .butt-reset {
     width: 133px;
     height: 60px;
@@ -168,10 +168,6 @@ header {
     line-height: 28px;
     color: white;
     cursor: pointer;
-}
-
-.butt-reset:hover {
-    opacity: 0.7;
 }
 
 .butt-equal {
@@ -191,6 +187,71 @@ header {
     cursor: pointer;
 }
 
-.butt-equal:hover {
-    opacity: 0.7;
+
+@media screen and (min-width: 1440px) {
+    .main-div {
+        width: 540px;
+        margin: 50px auto;
+    }
+
+    .div-result {
+        width: 508px;
+        height: 52px;
+        padding: 40px 32px 36px 0px;
+        margin: 39px auto 0px;
+        font-size: 56px;
+        line-height: 51px;
+        letter-spacing: -0.93px;
+    }
+
+    .div-all-buttons {
+        width: 480px;
+        margin: 24px auto 0px;
+        padding: 30px;
+        gap: 24px;
+    }
+
+    .butt-numbers {
+        width: 101px;
+        height: 64px;
+        font-size: 40px;
+        line-height: 37px;
+        border-radius: 10px;
+    }
+
+    .butt-del {
+        width: 101px;
+        height: 64px;
+        border-radius: 10px;
+        font-size: 28px;
+        line-height: 26px;
+    }
+
+    .butt-del:hover {
+        background-color: #A2B2E1;
+    }
+
+    .butt-reset {
+        width: 227px;
+        height: 64px;
+        border-radius: 10px;
+        font-size: 28px;
+        line-height: 26px;
+    }
+
+    .butt-reset:hover {
+        background-color: #A2B2E1;
+    }
+
+    .butt-equal {
+        width: 227px;
+        height: 64px;
+        border-radius: 10px;
+        font-size: 28px;
+        line-height: 26px;
+    }
+
+    .butt-equal:hover {
+        background-color: #F96B5B;
+    }
 }
