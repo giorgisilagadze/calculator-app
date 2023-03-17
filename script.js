@@ -15,12 +15,29 @@ const divButtons = document.querySelector(".div-all-buttons");
 
 for(let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", (event) => {
-        result.innerHTML += event.target.innerHTML
+        if(((result.innerHTML).slice(-1) == "+" || (result.innerHTML).slice(-1) == "-" || (result.innerHTML).slice(-1) == "*" || (result.innerHTML).slice(-1) == "/" || (result.innerHTML).slice(-1) == ".") && (event.target.innerHTML == "+" || event.target.innerHTML == "-" || event.target.innerHTML == "*" || event.target.innerHTML == "/" || event.target.innerHTML == ".")) {
+            result.innerHTML += "";
+        }else if((result.innerHTML).slice(-1) == "/" && event.target.innerHTML == "0") {
+            result.innerHTML = "can't be divided by 0";
+        }else if((result.innerHTML).length > 15) {
+            result.innerHTML += ""
+        }else {
+            result.innerHTML += event.target.innerHTML;
+        }
+          
     })
 }
 
+//result.innerHTML[result.innerHTML.length - 1].includes(operations)) && ((event.target.innerHTML).includes(operations))
+
+
 equal.addEventListener("click", () => { 
-    result.innerHTML = eval(result.innerHTML);
+    if (result.innerHTML == "") {
+        result.innerHTML = "";
+        console.log(result.innerHTML);
+    }else {
+        result.innerHTML = eval(result.innerHTML);
+    }
 })
 
 reset.addEventListener("click", () => {
