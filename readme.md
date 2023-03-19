@@ -29,3 +29,8 @@ Your users should be able to:
 ### What I learned
 
 I've learned how to use Eval function. Also, there is my first touch with manipulations on string, such like include, slice methods.
+
+### Links
+
+- Solution URL: https://github.com/giorgisilagadze/calculator-app;
+- Live Site URL: https://calculator-app-nine-delta.vercel.app/;
