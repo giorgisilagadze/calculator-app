@@ -102,7 +102,22 @@ header {
     letter-spacing: -0.67px;
     text-align: right;
     color: white;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
+
+.div-result::-webkit-scrollbar {
+    height: 8px;
+  }
+.div-result::-webkit-scrollbar-track {
+    background-color: #181F33;
+    border-radius: 10px;
+  }
+.div-result::-webkit-scrollbar-thumb {
+    background-color: #647198;
+    border-radius: 10px;
+  }
+
 
 .div-all-buttons {
     width: 279px;
@@ -153,6 +168,10 @@ header {
     cursor: pointer;
 }
 
+.butt-del:hover {
+    opacity: 0.7;
+}
+
 .butt-reset {
     width: 133px;
     height: 60px;
@@ -170,6 +189,10 @@ header {
     cursor: pointer;
 }
 
+.butt-reset:hover {
+    opacity: 0.7;
+}
+
 .butt-equal {
     width: 133px;
     height: 60px;
@@ -185,6 +208,10 @@ header {
     line-height: 28px;
     color: white;
     cursor: pointer;
+}
+
+.butt-equal:hover {
+    opacity: 0.7;
 }
 
 

@@ -13,22 +13,35 @@ const changeTheme = document.querySelector(".div-change-theme");
 const numberTheme = document.querySelector(".number-theme");
 const divButtons = document.querySelector(".div-all-buttons");
 
-for(let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", (event) => {
-        if(((result.innerHTML).slice(-1) == "+" || (result.innerHTML).slice(-1) == "-" || (result.innerHTML).slice(-1) == "*" || (result.innerHTML).slice(-1) == "/" || (result.innerHTML).slice(-1) == ".") && (event.target.innerHTML == "+" || event.target.innerHTML == "-" || event.target.innerHTML == "*" || event.target.innerHTML == "/" || event.target.innerHTML == ".")) {
-            result.innerHTML += "";
-        }else if((result.innerHTML).slice(-1) == "/" && event.target.innerHTML == "0") {
-            result.innerHTML = "can't be divided by 0";
-        }else if((result.innerHTML).length > 15) {
-            result.innerHTML += ""
-        }else {
-            result.innerHTML += event.target.innerHTML;
-        }
-          
-    })
-}
 
-//result.innerHTML[result.innerHTML.length - 1].includes(operations)) && ((event.target.innerHTML).includes(operations))
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", (event) => {
+        let lastChar = result.innerHTML.slice(-1);
+        let currentInput = event.target.innerHTML;
+        let operators = ["+", "-", "*", "/", "."];
+
+        let dotAdded = result.innerHTML.split(/[\+\-\*/]/).pop().includes(".");
+
+        if(result.innerHTML == "ERROR!") {
+            currentInput = "";
+            result.innerHTML += "";
+            return 
+        }
+
+        if (operators.includes(lastChar) && operators.includes(currentInput)) {
+            result.innerHTML += "";
+        } else if (lastChar === "/" && currentInput === "0") {
+            result.innerHTML = "ERROR!";
+            lastChar = "";    
+        } else if (dotAdded && currentInput === ".") {
+            result.innerHTML += "";
+        } else {
+            result.innerHTML += currentInput;
+        }
+
+
+    });
+}
 
 
 equal.addEventListener("click", () => { 
@@ -45,8 +58,12 @@ reset.addEventListener("click", () => {
 })
 
 del.addEventListener("click", () => {
-    result.innerHTML = (result.innerHTML).slice(0, result.innerHTML.length - 1)
+    if(result.innerHTML == "ERROR!") {
+        return 
+    }
+    result.innerHTML = (result.innerHTML).slice(0, result.innerHTML.length - 1);
 })
+
 
 circle1.addEventListener("click", () => {
     body.style.backgroundColor = "";
@@ -63,7 +80,6 @@ circle1.addEventListener("click", () => {
     del.style.backgroundColor = "";
     reset.style.backgroundColor = "";
     equal.style.backgroundColor = "";
-    // buttons.style.backgroundColor = "";
     del.style.boxShadow = "";
     reset.style.boxShadow = "";
     equal.style.boxShadow = "";
@@ -75,6 +91,7 @@ circle1.addEventListener("click", () => {
     
     
 })
+
 
 circle2.addEventListener("click", () => {
     body.style.backgroundColor = "#F2F2F2";
@@ -88,7 +105,6 @@ circle2.addEventListener("click", () => {
     result.style.backgroundColor = "white";
     result.style.color = "#36362C";
     divButtons.style.backgroundColor = "#D2CDCD";
-    // buttons.style.backgroundColor = "#E5E4E1";
     del.style.backgroundColor = "#378187";
     del.style.boxShadow = "inset 0px -4px 0px #1B6066";
     reset.style.backgroundColor = "#378187";
@@ -115,7 +131,6 @@ circle3.addEventListener("click", () => {
     result.style.backgroundColor = "#1E0936";
     result.style.color = "#FFE53D";
     divButtons.style.backgroundColor = "#1E0936";
-    // buttons.style.backgroundColor = "#331C4D";
     del.style.backgroundColor = "#56077C";
     del.style.boxShadow = "inset 0px -4px 0px #BE15F4";
     reset.style.backgroundColor = "#56077C";
